@@ -15,6 +15,7 @@ public class PlayerController : MonoBehaviour
     private Rigidbody rb;
     private float movementX;
     private float movementY;
+    private float movementJump;
 
     private int count = 0;
 
@@ -42,6 +43,10 @@ public class PlayerController : MonoBehaviour
         UnityEngine.Debug.Log("Current X and Y : " + movementX + " " + movementY);
     }
 
+    void OnJump() {
+        movementJump = 20f;
+    }
+
     void SetCountText() {
         countText.text = "Count: " + count.ToString();
         if (count >= 9) {
@@ -51,8 +56,9 @@ public class PlayerController : MonoBehaviour
 
     void FixedUpdate() {
 
-        Vector3 movement = new Vector3(movementX, 0.0f, movementY);
+        Vector3 movement = new Vector3(movementX, movementJump, movementY);
         rb.AddForce(movement * speed);
+        movementJump = 0;
     }
 
     private void OnTriggerEnter(Collider other) {
