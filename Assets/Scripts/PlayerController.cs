@@ -12,6 +12,7 @@ public class PlayerController : MonoBehaviour
     public float speed = 0;
     public TextMeshProUGUI countText;
     public GameObject winTextObject;
+    public GameObject restartButtonObject;
 
     private Rigidbody rb;
     private float movementX;
@@ -28,6 +29,7 @@ public class PlayerController : MonoBehaviour
         count = 0;
         SetCountText();
         winTextObject.SetActive(false);
+        restartButtonObject.SetActive(false);
     }
 
     // Update is called once per frame
@@ -52,6 +54,7 @@ public class PlayerController : MonoBehaviour
         countText.text = "Count: " + count.ToString();
         if (count >= 9) {
             winTextObject.SetActive(true);
+            restartButtonObject.SetActive(true);
         }
     }
 
@@ -73,5 +76,10 @@ public class PlayerController : MonoBehaviour
 
     public void GoToMainMenu() {
         SceneManager.LoadScene("MainMenu");
+    }
+
+    public void RestartGame()
+    {
+        SceneManager.LoadScene("MiniGame");
     }
 }
