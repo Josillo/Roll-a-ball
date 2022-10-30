@@ -25,6 +25,10 @@ This requires to have installed Unity 2021 https://unity.com/download .
 
 1. Added Obstacle to the game.
 2. Added Jump Action.
+3. Added Main Menu and Scene change
+4. Added Return to Main Menu.
+5. Added functionality "Quit Application" (ignored in the editor)
+6. Added functionality "Restart Game" after player wins.
 
 
 ## Authors
